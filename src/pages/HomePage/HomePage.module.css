@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 1200px;
+
+  margin: auto;
+  margin-top: 40px;
+  padding: 10px;
+}
+
+.movieList {
+  margin: 50px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.movieItem {
+  width: calc((100% - 8 * 15px) / 4);
+  margin: 15px;
+  height: 380px;
+  border: 3px solid rgba(65, 223, 45, 0.7);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.moviePosterWraper {
+  height: 330px;
+  overflow: hidden;
+}
+
+.movieLink {
+  text-decoration: none;
+}
+.moviePoster {
+  height: 100%;
+  width: 100%;
+}
+.movieTitle {
+  color: black;
+}

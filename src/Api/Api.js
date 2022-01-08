@@ -1,14 +1,12 @@
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'c98ea6b6701785f437faf7489bbb6d42';
 
-const handleFetch = function (response) {
-  return response
-    .then(function (response) {
-      return response.data;
-    })
-    .catch(function (error) {
-      throw new Error(error.response.data.status_message);
-    });
+const handleFetch = async function (url) {
+  const response = await fetch(url);
+  if (response.ok) {
+    return response.json();
+  }
+  return await Promise.reject(new Error('Movie not found'));
 };
 
 const getTrendingMovie = function () {
