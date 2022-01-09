@@ -13,9 +13,7 @@ export default function MovieDetailsPage() {
 
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  const [locationState, setLocationState] = useState(() => {
-    return location?.state?.from ?? '/';
-  });
+  const [locationState] = useState(location?.state?.from ?? '/');
 
   useEffect(() => {
     getMoviesById(movieId).then(response => {
