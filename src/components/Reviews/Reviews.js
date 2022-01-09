@@ -3,24 +3,26 @@ import { useState, useEffect } from 'react';
 
 import { getMoviesReviews } from '../../Api/Api';
 
+import s from './Reviews.module.css';
+
 export default function Reviews() {
   const { movieId } = useParams();
 
   const [reviews, setReviews] = useState([]);
 
-   useEffect(() => {
-     getMoviesReviews(movieId).then(response => {
-       setReviews(response.results);
-     });
-   }, [movieId]);
-  
+  useEffect(() => {
+    getMoviesReviews(movieId).then(response => {
+      setReviews(response.results);
+    });
+  }, [movieId]);
+
   return (
-    <div>
+    <div className={s.container}>
       {reviews.length !== 0 ? (
-        <ul>
+        <ul className={s.reviews}>
           {reviews.map(review => (
-            <li key={review.id}>
-              <h4>Aothor:{review.author}</h4>
+            <li key={review.id} className={s.review}>
+              <h4>Aothor: {review.author}</h4>
               <p>{review.content}</p>
             </li>
           ))}
@@ -31,4 +33,3 @@ export default function Reviews() {
     </div>
   );
 }
-

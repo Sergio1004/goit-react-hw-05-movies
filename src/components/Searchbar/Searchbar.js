@@ -19,22 +19,22 @@ export default function SearchBar({ onSubmit }) {
   };
 
   return (
-    <header className={s.searchbar}>
+    <div className={s.searchbar}>
       <form className={s.form} onSubmit={handleSubmit}>
-        <button type="submit" className={s.button}>
-          <span className={s.buttonLabel}>Search</span>
-        </button>
-
         <input
           className={s.input}
           type="text"
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos"
+          placeholder="Search movies"
           onChange={handleChange}
         />
+
+        <button type="submit" className={s.button}>
+          <span>Search</span>
+        </button>
       </form>
-    </header>
+    </div>
   );
 }
 

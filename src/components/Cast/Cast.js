@@ -17,14 +17,15 @@ export default function Cast() {
   }, [movieId]);
 
   return (
-    <div>
+    <div className={s.container}>
       {cast && (
         <ul className={s.actors}>
           {cast.map(cast => (
-            <li key={cast.cast_id}>
+            <li key={cast.cast_id} className={s.actorsItem}>
               {cast.profile_path && (
                 <div className={s.actorCard}>
                   <img
+                    className={s.actorImage}
                     src={`https://image.tmdb.org/t/p/w500${cast.profile_path}`}
                     alt={cast.name}
                   />

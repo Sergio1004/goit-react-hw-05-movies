@@ -4,6 +4,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import Searchbar from '../../components/Searchbar/Searchbar';
 
+import s from './MoviesPage.module.css';
+
 export default function MoviesPage() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -34,12 +36,12 @@ export default function MoviesPage() {
   }, [query]);
 
   return (
-    <div className="container">
+    <div className={s.container}>
       <Searchbar onSubmit={handleSearchSubmit} />
       {movies && (
-        <ul className="movie-list">
+        <ul className={s.movieList}>
           {movies.map(movie => (
-            <li key={movie.id} className="list-item">
+            <li key={movie.id} className={s.listItem}>
               <Link
                 to={{
                   pathname: `/movies/${movie.id}`,
@@ -47,14 +49,16 @@ export default function MoviesPage() {
                     from: location,
                   },
                 }}
-                className="movie-link"
+                className={s.movieLink}
               >
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.original_title}
-                  className="movie-poster"
-                />
-                <h4 className="list-title">{movie.original_title}</h4>
+                <div className={s.moviePosterWrapper}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.original_title}
+                    className={s.moviePoster}
+                  />
+                </div>
+                <h4 className={s.listTitle}>{movie.original_title}</h4>
               </Link>
             </li>
           ))}

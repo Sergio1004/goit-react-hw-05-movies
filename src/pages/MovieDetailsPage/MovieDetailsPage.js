@@ -24,33 +24,34 @@ export default function MovieDetailsPage() {
   }, [movieId]);
 
   return (
-    <div>
-      <Link type="button" to={locationState}>
+    <div className={s.container}>
+      <Link type="button" to={locationState} className={s.backButton}>
         Go back
       </Link>
 
       {movie && (
-        <div className={s.container}>
+        <div className={s.cardWrapper}>
           <div className={s.movieCard}>
-            <div className={s.movieImage}>
+            <div className={s.movieImageWrapper}>
               {movie.poster_path && (
                 <img
+                  className={s.movieImage}
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.original_title}
                 />
               )}
             </div>
             <div className={s.movieDescription}>
-              <h2>{movie.original_title}</h2>
-              <p>
+              <h2 className={s.movieTitle}>{movie.original_title}</h2>
+              <p className={s.vote}>
                 Vote/Votes: {movie.vote_average}/{movie.vote_count}
               </p>
-              <h3>Overview</h3>
-              <p>{movie.overview}</p>
-              <h4>Genres</h4>
+              <h3 className={s.title}>Overview</h3>
+              <p className={s.overview}>{movie.overview}</p>
+              <h3 className={s.title}>Genres</h3>
               {movie.genres.map(genre => {
                 return (
-                  <span key={genre.id} className="movie-genre">
+                  <span key={genre.id} className={s.movieGenre}>
                     {genre.name}
                   </span>
                 );
@@ -58,25 +59,31 @@ export default function MovieDetailsPage() {
             </div>
           </div>
 
-          <h3>Additional information</h3>
+          <div className={s.informationWrapper}>
+            <h4>Additional information</h4>
 
-          <Link
-            to={{
-              pathname: `/movies/${movieId}/cast`,
-              state: { from: locationState },
-            }}
-          >
-            Cast
-          </Link>
+            <div className={s.information}>
+              <Link
+                to={{
+                  pathname: `/movies/${movieId}/cast`,
+                  state: { from: locationState },
+                }}
+                className={s.cast}
+              >
+                Cast
+              </Link>
 
-          <Link
-            to={{
-              pathname: `/movies/${movieId}/reviews`,
-              state: { from: locationState },
-            }}
-          >
-            Reviews
-          </Link>
+              <Link
+                to={{
+                  pathname: `/movies/${movieId}/reviews`,
+                  state: { from: locationState },
+                }}
+                className={s.reviews}
+              >
+                Reviews
+              </Link>
+            </div>
+          </div>
         </div>
       )}
 

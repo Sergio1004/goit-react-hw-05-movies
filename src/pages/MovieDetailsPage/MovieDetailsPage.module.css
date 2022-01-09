@@ -1,0 +1,78 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+
+  margin: auto;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.backButton {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  margin-right: auto;
+  padding: 5px;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+
+.movieCard {
+  display: flex;
+}
+
+.movieImageWrapper {
+  width: 300px;
+  overflow: hidden;
+}
+
+.movieImage {
+  height: 100%;
+  width: 100%;
+}
+
+.movieDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+
+.title {
+  margin-top: 20px;
+}
+
+.vote {
+  margin-top: 15px;
+}
+
+.overview {
+  text-align: start;
+}
+
+.informationWrapper {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cast {
+  margin-right: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.reviews {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+}

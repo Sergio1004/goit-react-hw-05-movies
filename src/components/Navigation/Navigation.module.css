@@ -1,2 +1,13 @@
+.navigation {
+  margin-top: 20px;
+}
+
 .link {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.link:not(:last-child) {
+  margin-right: 30px;
 }

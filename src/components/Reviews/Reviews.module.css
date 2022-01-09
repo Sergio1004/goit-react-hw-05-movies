@@ -1,0 +1,13 @@
+.container {
+  margin-top: 20px;
+  display: flex;
+}
+
+.reviews {
+  list-style: none;
+  text-align: left;
+}
+
+.review:not(:last-child) {
+  margin-bottom: 20px;
+}
