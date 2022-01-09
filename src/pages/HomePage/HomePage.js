@@ -5,7 +5,7 @@ import { getTrendingMovie } from '../../Api/Api';
 
 import s from './HomePage.module.css';
 
-function Homepage() {
+export default function Homepage() {
   const [movies, setMovies] = useState([]);
   const location = useLocation();
 
@@ -45,5 +45,3 @@ function Homepage() {
     </div>
   );
 }
-
-export default Homepage;
